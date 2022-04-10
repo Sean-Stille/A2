@@ -1,20 +1,25 @@
 import java.io.*;
 import java.util.Scanner;
 import net.datastructures.*;
-
+/**
+ * OSQueue class, represents the operating system iterating through processes after reading them in
+ */
 public class OSQueue {
     int maxTimeWaiting;
     SortedPriorityQueue<Integer, Job> jobQueue;    
     int i;
     Job detectedJob; //used as an intermediary for when I need a job variable
+
+    /**
+     * Constructor for OSQueue, handles IO, variable initialization, and calling the loop
+     * @param maxTime Input for deciding when the priority of a given job needs to be raised
+     */
     public OSQueue(int maxTime){
         maxTimeWaiting = maxTime;
         jobQueue = new SortedPriorityQueue<>();
         String[] wordsInLine;
         String currentLine;
         Scanner scan = null;
-        boolean jobsCompleted = false;
-        
         
         try{
             scan = new Scanner(new File("Jobs.txt"));
@@ -43,8 +48,6 @@ public class OSQueue {
                 runQueueLoop();
             }
             System.out.println("Done!");
-
-
         }
         catch(Exception e){
             e.printStackTrace();
@@ -55,7 +58,9 @@ public class OSQueue {
         
     }
 
-
+    /**
+     * Processor loop, takes care of steps 1, 2, and 3 from the A2 handout
+     */
     public void runQueueLoop(){
         ArrayList<Job> removedJobs;
         Job currentlyExecuting;
