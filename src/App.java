@@ -8,6 +8,9 @@ import net.datastructures.*;
  * Reflection:  Overall this went pretty smoothly, I think I could've isolated the methods a bit more.
  *              The main thing I would've changed would be isolating what OSQueue needs to do into more 
  *              than two methods.
+ *              I noticed that for output number 3, my output is slightly different. I'm thinking that this is just
+ *              the result of different PriorityQueue implementations, and from what I can tell it's just a case
+ *              of multiple values having the same priority value
  */
 
 /**
@@ -15,6 +18,6 @@ import net.datastructures.*;
  */
 public class App {
     public static void main(String[] args) throws Exception {
-        new OSQueue(2);
+        new OSQueue(0);
     }
 }
